@@ -1,34 +1,13 @@
 # Validation framework
 
-Each LLM-generated ontology will be systematically evaluated using the seven complementary validation steps presented below. Together, these steps assess syntactic validity, logical consistency, modelling quality, constraint conformance, functional adequacy, semantic accuracy and LLM-specific generation errors.
+Each LLM-generated ontology will be systematically evaluated using the seven complementary validation steps presented below. Together, these steps assess syntactic validity, logical consistency, modelling quality, constraint conformance, functional adequacy, semantic accuracy, and LLM-specific generation errors.
 
-  ----------------------------------------------------------------------------------------
-  \#      Validation layer            Method/tool        What it evaluates
-  ------- --------------------------- ------------------ ---------------------------------
-  **1**   **Syntactic & OWL           OWL API / parser / Parseability, syntax, IRIs,
-          Conformance**               profile checker    namespaces, imports, OWL profile
-
-  **2**   **Logical Verification**    **HermiT**         Consistency, satisfiability,
-                                                         inferred hierarchy, entailments,
-                                                         contradictions
-
-  **3**   **Ontology Pitfall &        **OOPS!**          Modelling pitfalls, completeness,
-          Structural Quality**                           conciseness, clarity,
-                                                         annotations, structural issues
-
-  **4**   **Constraint Validation**   **SHACL**          Cardinality, datatype, required
-                                                         properties, structural/data
-                                                         constraints
-
-  **5**   **Requirements/Functional   **Competency       Vocabulary coverage, structural
-          Validation**                Questions +        coverage, answerability and
-                                      SPARQL**           correctness of answers
-
-  **6**   **Semantic Accuracy &       **Gold ontology +  Entity/axiom precision, recall,
-          Completeness**              reasoner + expert  F1; entailment precision/recall;
-                                      assessment**       domain correctness
-
-  **7**   **LLM-Specific Quality**    **Gold standard +  Hallucinations, omissions,
-                                      expert analysis**  redundancy, invented
-                                                         concepts/relations/axioms
-  ----------------------------------------------------------------------------------------
+| # | Validation layer | Method/tool | What it evaluates |
+|---|---|---|---|
+| **1** | **Syntactic & OWL Conformance** | OWL API / parser / profile checker | Parseability, RDF/OWL syntax, valid IRIs, namespaces, imports, and OWL profile conformance |
+| **2** | **Logical Verification** | **HermiT** | Ontology consistency, class satisfiability, inferred class/property hierarchies, expected/unexpected entailments, and logical contradictions |
+| **3** | **Ontology Pitfall & Structural Quality** | **OOPS!** | Common ontology modelling pitfalls involving classes, properties, hierarchy, domains/ranges, annotations, naming, and structural design |
+| **4** | **Constraint Validation** | **SHACL** | Conformance to required cardinalities, datatypes, mandatory properties, value constraints, and structural/data constraints |
+| **5** | **Requirements & Functional Validation** | **Competency Questions + SPARQL** | Vocabulary and structural coverage of requirements, CQ answerability, and correctness of returned answers |
+| **6** | **Semantic Accuracy & Completeness** | **Gold-standard ontology + reasoner + expert assessment** | Entity and axiom precision/recall/F1, semantic/entailment precision and recall, missing knowledge, and domain correctness |
+| **7** | **LLM-Specific Quality** | **Gold standard/source material + expert analysis** | Hallucinated concepts, relationships and axioms; omissions; unnecessary/redundant entities; and other unsupported generated knowledge |
